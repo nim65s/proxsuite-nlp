@@ -8,30 +8,31 @@ find_path(
   EigenRand_INCLUDE_DIR
   NAMES EigenRand
   PATHS ${EigenRand_PREFIX}
-  PATH_SUFFIXES include/EigenRand)
+  PATH_SUFFIXES include/EigenRand
+)
 
 if(NOT EigenRand_INCLUDE_DIR)
-    # Fetch private dependencies
-    include(FetchContent)
+  # Fetch private dependencies
+  include(FetchContent)
 
-    # Add eigenrand dependency
-    # TODO use main bab2min/EigenRand when PR is merged
-    FetchContent_Declare(
-      eigenrand
-      GIT_REPOSITORY https://github.com/ManifoldFR/EigenRand.git
-      GIT_TAG 23d287e
-      GIT_PROGRESS TRUE
-      EXCLUDE_FROM_ALL SYSTEM
-    )
-    set(EIGENRAND_BUILD_TEST
-        OFF
-        CACHE INTERNAL "Enable EigenRand test"
-    )
-    set(EIGENRAND_BUILD_BENCHMARK
-        OFF
-        CACHE INTERNAL "Enable EigenRand benchmark"
-    )
-    FetchContent_MakeAvailable(eigenrand)
+  # Add eigenrand dependency
+  # TODO use main bab2min/EigenRand when PR is merged
+  FetchContent_Declare(
+    eigenrand
+    GIT_REPOSITORY https://github.com/ManifoldFR/EigenRand.git
+    GIT_TAG 23d287e
+    GIT_PROGRESS TRUE
+    EXCLUDE_FROM_ALL SYSTEM
+  )
+  set(EIGENRAND_BUILD_TEST
+      OFF
+      CACHE INTERNAL "Enable EigenRand test"
+  )
+  set(EIGENRAND_BUILD_BENCHMARK
+      OFF
+      CACHE INTERNAL "Enable EigenRand benchmark"
+  )
+  FetchContent_MakeAvailable(eigenrand)
 endif()
 
 # Add benchmark dependency
