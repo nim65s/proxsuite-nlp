@@ -60,7 +60,7 @@ target_link_libraries(${TEST_UTIL_LIB} PUBLIC ${PROJECT_NAME})
 if(EigenRand_INCLUDE_DIR)
   target_include_directories(${TEST_UTIL_LIB} PRIVATE SYSTEM ${EigenRand_INCLUDE_DIR})
 else()
-  target_link_libraries(${TEST_UTIL_LIB} PRIVATE EigenRand::EigenRand)
+  target_link_libraries(${TEST_UTIL_LIB} PUBLIC EigenRand::EigenRand)
 endif()
 set_target_properties(${TEST_UTIL_LIB} PROPERTIES LINKER_LANGUAGE CXX)
 
